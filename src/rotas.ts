@@ -1,4 +1,4 @@
-import { NodemailerMailAdapter } from './adapters/nodemailer/nodemailer-mail-adapater';
+import { NodemailerMailAdapter } from './adapters/nodemailer/nodemailer-mail-adapter';
 import express from 'express';
 
 import { SubmitFeedbacks } from './domain/feedbacks/submit-feedback';
