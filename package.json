@@ -5,13 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-<<<<<<< HEAD
     "build": "npx tsc",
     "start": "npx run migrate deploy && node dist/server.js",
-=======
-    "build": "npx run migrate deploy && npx tsc",
-    "start": "node dist/server.js",
->>>>>>> 95065d4cf8c3419f5c1efebb30bbdcdde36267ba
     "dev": "ts-node-dev src/server.ts"
   },
   "keywords": [],
