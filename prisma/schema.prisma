@@ -8,10 +8,12 @@ datasource db {
 }
 
 model Feedback {
-  id         String  @id @default(uuid())
+  id         String   @id @default(uuid())
   type       String
   comment    String
-  screenshot String? @db.LongText
+  screenshot String?  @db.LongText
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 
   @@map("feedbacks")
 }
