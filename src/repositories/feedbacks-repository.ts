@@ -1,16 +1,21 @@
-export interface FeedbackCreateData {
-  type: string;
-  comment: string;
-  screenshot?: string;
-}
-
 export interface FeedbackResponse {
   id: string;
   type: string;
   comment: string;
+  screenshot: string;
+}
+export interface FeedbackCreate {
+  type: string;
+  comment: string;
   screenshot?: string;
 }
 
+export interface FeedbackDelete {
+  id: string;
+}
+
 export interface FeedbacksRepository {
-  create: (data: FeedbackCreateData) => Promise<FeedbackResponse>;
+  select: () => Promise<FeedbackResponse[]>;
+  create: (data: FeedbackCreate) => Promise<FeedbackResponse>;
+  delete: (data: FeedbackDelete) => Promise<FeedbackResponse>;
 }

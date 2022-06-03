@@ -1,19 +1,19 @@
-import { MailAdapter } from './../../adapters/mail-adapter'
-import { FeedbacksRepository } from './../../repositories/feedbacks-repository'
+import { MailAdapter } from '../../adapters/mail-adapter';
+import { FeedbacksRepository } from '../../repositories/feedbacks-repository';
 
-interface SubmitFeedbackRequest {
+export interface CreateFeedbackRequest {
   type: string
   comment: string
   screenshot?: string
 }
 
-export class SubmitFeedbacks {
+export class CreateFeedback {
   constructor(
     private mailAdapter: MailAdapter,
     private feedbacksRepository: FeedbacksRepository
   ) {}
 
-  async execute(request: SubmitFeedbackRequest) {
+  async execute(request: CreateFeedbackRequest) {
     const { type, comment, screenshot } = request
 
     if (!type || !comment) {

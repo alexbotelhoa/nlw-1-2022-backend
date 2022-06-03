@@ -1,17 +1,17 @@
-import { SubmitFeedbacks } from './submit-feedback'
+import { CreateFeedback } from './create-feedback'
 
 const createFeedbackSpy = jest.fn();
 const sendMailSpy = jest.fn();
 
 describe('Submit feedback', () => {
-  const submitFeedback = new SubmitFeedbacks(
+  const createFeedback = new CreateFeedback(
     { sendMail: createFeedbackSpy },
     { create: sendMailSpy }
   )
 
   it('should be able to submit a feedback', async () => {
     await expect(
-      submitFeedback.execute({
+      createFeedback.execute({
         type: 'BUG',
         comment: 'exemple comment',
         screenshot: 'data:image/png;base64,asdolsadlkajslkd'
@@ -24,7 +24,7 @@ describe('Submit feedback', () => {
 
   it('should not be able to submit a feedback without type', async () => {
     await expect(
-      submitFeedback.execute({
+      createFeedback.execute({
         type: '',
         comment: 'exemple comment',
         screenshot: 'data:image/png;base64,asdolsadlkajslkd'
@@ -34,7 +34,7 @@ describe('Submit feedback', () => {
 
   it('should not be able to submit a feedback without screenshot', async () => {
     await expect(
-      submitFeedback.execute({
+      createFeedback.execute({
         type: 'BUG',
         comment: 'exemple comment',
         screenshot: 'test.jpg'
