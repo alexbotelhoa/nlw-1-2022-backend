@@ -7,7 +7,11 @@ import {
 
 export class PrismaFeedbacksRepository implements FeedbacksRepository {
   async select() {
-    return await prisma.feedback.findMany() as FeedbackResponse[];
+    return await prisma.feedback.findMany({
+      orderBy: {
+        createdAt: 'asc'
+      }
+    }) as FeedbackResponse[];
   }
 
   async create({ type, comment, screenshot }: FeedbackCreate) {
