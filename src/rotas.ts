@@ -4,6 +4,6 @@ import { FeedbackController } from './controllers/feedback.controller';
 
 export const routes = express.Router();
 
-routes.get('/feedbacks', FeedbackController().selectFeedback);
-routes.post('/feedbacks', FeedbackController().createFeedback);
-routes.delete('/feedbacks/:id', FeedbackController().deleteFeedback);
+routes.get('/feedback', FeedbackController().selectFeedback);
+routes.post('/feedback', FeedbackController().createFeedback);
+routes.delete('/feedback/:id', FeedbackController().deleteFeedback);
