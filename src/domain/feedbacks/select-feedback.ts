@@ -2,7 +2,7 @@ import { FeedbacksRepository } from '../../repositories/feedbacks-repository';
 
 export class SelectFeedbacks {
   constructor(
-    private feedbacksRepository: FeedbacksRepository
+    private feedbacksRepository: FeedbacksRepository,
   ) {}
 
   async execute() {

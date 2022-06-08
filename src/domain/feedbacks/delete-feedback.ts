@@ -1,19 +1,19 @@
 import { FeedbacksRepository } from '../../repositories/feedbacks-repository';
 
 export interface DeleteFeedbackRequest {
-  id: string
+  id: string;
 }
 
 export class DeleteFeedback {
   constructor(
-    private feedbacksRepository: FeedbacksRepository
+    private feedbacksRepository: FeedbacksRepository,
   ) {}
 
   async execute(request: DeleteFeedbackRequest) {
-    const { id } = request
+    const { id } = request;
 
     if (!id) {
-      throw new Error('All fields is required')
+      throw new Error('All fields is required');
     }
 
     return await this.feedbacksRepository.delete({ id })

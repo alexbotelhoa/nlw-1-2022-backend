@@ -10,18 +10,18 @@ export interface CreateFeedbackRequest {
 export class CreateFeedback {
   constructor(
     private mailAdapter: MailAdapter,
-    private feedbacksRepository: FeedbacksRepository
+    private feedbacksRepository: FeedbacksRepository,
   ) {}
 
   async execute(request: CreateFeedbackRequest) {
-    const { type, comment, screenshot } = request
+    const { type, comment, screenshot } = request;
 
     if (!type || !comment) {
-      throw new Error('All fields is required')
+      throw new Error('All fields is required');
     }
 
     if (screenshot && !screenshot.startsWith('data:image/png;base64')) {
-      throw new Error('Invalid screenshot formar')
+      throw new Error('Invalid screenshot formar');
     }
 
     await this.mailAdapter.sendMail({
